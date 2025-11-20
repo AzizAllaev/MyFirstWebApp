@@ -1,5 +1,7 @@
-
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using WebApplication1.Models;
 
 namespace WebApplication1
@@ -12,7 +14,22 @@ namespace WebApplication1
 
 			builder.Services.AddDbContext<NorthwindContext>(options =>
 	            options.UseSqlServer(builder.Configuration.GetConnectionString(@"Server=.\SQLEXPRESS;Database=Northwind;Trusted_Connection=True")));
+			builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+	            .AddJwtBearer(options =>
+	            {
+	            	options.TokenValidationParameters = new TokenValidationParameters
+	            	{
+		            	ValidateIssuer = true,
+		            	ValidateAudience = true,
+			            ValidateLifetime = true,
+			            ValidateIssuerSigningKey = true,
+		            	ValidIssuer = "yourdomain.com",
+		            	ValidAudience = "yourdomain.com",
+		            	IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("your_super_secret_key"))
+		            };
+	            });
 
+            builder.Services.AddAuthorization();
 			// Add services to the container.
 			builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

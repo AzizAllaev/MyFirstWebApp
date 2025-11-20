@@ -1,5 +1,5 @@
-﻿{
-  "ConnectionStrings": {
-    "Northwind" :  "Server=.\SQLEXPRESS "
-  }
-}
+﻿//{
+//  "ConnectionStrings": {
+//    "Northwind" :  "Server=.\SQLEXPRESS "
+//  }
+//}

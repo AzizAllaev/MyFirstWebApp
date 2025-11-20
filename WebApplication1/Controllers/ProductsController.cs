@@ -39,9 +39,10 @@ namespace WebApplication1.Controllers
 		{
 			if(product == null) 
 				return NotFound();
-			var dbproduct = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == id);
-			dbproduct = product;
+
+			_context.Entry(product).State = EntityState.Modified;
 			await _context.SaveChangesAsync();
+
 			return Ok();
 		}
 
@@ -51,7 +52,8 @@ namespace WebApplication1.Controllers
 			var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == id);
 			if( product == null)
 				return NotFound();
-			_context.Products.Remove(product);
+			//_context.Products.Remove(product);
+			_context.Entry(product).State = EntityState.Deleted;
 			await _context.SaveChangesAsync();
 			return Ok();
 		}
