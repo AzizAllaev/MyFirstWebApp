@@ -23,8 +23,8 @@ namespace WebApplication1.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Login([FromBody] UserLogin user)
 		{
-			if (!await _context.Users.AnyAsync(u => u.Name == user.Username && u.Login == user.Password))
-				return Unauthorized();
+			// Lets imagine that user logged successefuly
+
 			string token = GenerateJwtToken(user.Username);
 
 			return Ok(new { token });
@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
 				new Claim(System.IdentityModel.Tokens.Jwt.JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
 			};
 
-			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("secretkey"));
+			var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("secretkeysecretkeysecretkeysecretkeysecretkey"));
 			var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
 			var token = new JwtSecurityToken(
