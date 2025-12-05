@@ -24,7 +24,7 @@ namespace WebApplication1.Controllers
 		public async Task<IActionResult> Login([FromBody] UserLogin user)
 		{
 			// Lets imagine that user logged successefuly
-
+			    
 			string token = GenerateJwtToken(user.Username);
 
 			return Ok(new { token });
