@@ -7,6 +7,7 @@ using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApplication1.Controllers
 {
@@ -23,13 +24,22 @@ namespace WebApplication1.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Login([FromBody] UserLogin user)
 		{
-			// Lets imagine that user logged successefuly
-			    
-			string token = GenerateJwtToken(user.Username);
+			if (user.Username == "admin" && user.Password == "1234")
+			{
+				string token = GenerateJwtToken(user.Username);
+				return Ok(new { token });
+			}
 
-			return Ok(new { token });
+			return Unauthorized();
 		}
 
+		[HttpGet]
+		[Authorize]
+		public ActionResult GetValue()
+		{
+			Console.WriteLine("User successefully authorized");
+			return Ok();
+		}
 		private string GenerateJwtToken(string username)
 		{
 			var claims = new[]
