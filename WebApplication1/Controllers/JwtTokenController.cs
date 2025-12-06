@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Login([FromBody] UserLogin user)
+		public ActionResult Login([FromBody] UserLogin user)
 		{
 			if (user.Username == "admin" && user.Password == "1234")
 			{
