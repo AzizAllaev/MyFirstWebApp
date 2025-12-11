@@ -1,9 +1,12 @@
-# My First Web Application
+# WebAppSamples solution
 
-A simple learning project for studying web development basics and practicing
-CRUD operations using a modern web framework stack
+WebAppSamples - solution that includes study samples of Web applications development. 
 
-Project demonstrate of building web apps by using:
+This solution has next project:
+- JwtTokenSample, project that demonstrate how to work with JwtToken
+and user authorization and authentication.
+
+Solution demonstrate of building web apps by using:
 - Database first migration.
 - Entity Framework 9
 - Using JWT Token authorization
