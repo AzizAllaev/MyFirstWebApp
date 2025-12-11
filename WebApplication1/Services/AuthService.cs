@@ -19,8 +19,8 @@ namespace JwtTokenSample.Service
 			var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
 			var token = new JwtSecurityToken(
-				issuer: "domain",
-				audience: "domain",
+				issuer: "yourdomain.com",
+				audience: "yourdomain.com",
 				claims: claims,
 				expires: DateTime.UtcNow.AddMinutes(30),
 				signingCredentials: creds

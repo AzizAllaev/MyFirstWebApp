@@ -39,15 +39,15 @@ namespace JwtTokenSample.Controllers
 
 		[HttpPut("{id}")]
 		[Authorize]
-		public async Task<ActionResult<Products>> Put([FromBody] Products product, int id)
+		public async Task<ActionResult<Products>> Put([FromBody] Products product)
 		{
-			if(product == null) 
-				return NotFound();
+			if(product == null)
+				return BadRequest();
 
 			_context.Entry(product).State = EntityState.Modified;
 			await _context.SaveChangesAsync();
 
-			return Ok();
+			return Ok(product);
 		}
 
 		[HttpDelete("{id}")]
