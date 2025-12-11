@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtTokenSample", "JwtTokenSample\JwtTokenSample.csproj", "{C6E15CD0-2DA5-46D2-96BB-331F61642A2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +22,15 @@ Global
 		{D393324E-26E9-4242-89FF-87DCC60898DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D393324E-26E9-4242-89FF-87DCC60898DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D393324E-26E9-4242-89FF-87DCC60898DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6E15CD0-2DA5-46D2-96BB-331F61642A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6E15CD0-2DA5-46D2-96BB-331F61642A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6E15CD0-2DA5-46D2-96BB-331F61642A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6E15CD0-2DA5-46D2-96BB-331F61642A2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {517F38CC-8040-4D58-88DE-4D171D7D634F}
 	EndGlobalSection
 EndGlobal
