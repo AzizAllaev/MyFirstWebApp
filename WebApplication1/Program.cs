@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using WebApplication1.Models;
+using JwtTokenSample.Models;
 
-namespace WebApplication1
+namespace JwtTokenSample
 {
     public class Program
     {

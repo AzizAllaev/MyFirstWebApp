@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace WebApplication1.Models;
+namespace JwtTokenSample.Models;
 
 public partial class Territories
 {

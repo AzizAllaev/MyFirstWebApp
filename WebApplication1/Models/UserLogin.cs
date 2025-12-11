@@ -1,4 +1,4 @@
-﻿namespace WebApplication1.Models
+﻿namespace JwtTokenSample.Models
 {
 	public class UserLogin
 	{

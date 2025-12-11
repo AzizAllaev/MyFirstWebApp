@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using WebApplication1.Models;
+using JwtTokenSample.Models;
 
 #nullable disable
 
-namespace WebApplication1.Migrations
+namespace JwtTokenSample.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
     [Migration("20251124170234_JwtMigration")]
@@ -64,7 +64,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("EmployeeTerritories");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Categories", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Categories", b =>
                 {
                     b.Property<int>("CategoryID")
                         .ValueGeneratedOnAdd()
@@ -90,7 +90,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.CustomerDemographics", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.CustomerDemographics", b =>
                 {
                     b.Property<string>("CustomerTypeID")
                         .HasMaxLength(10)
@@ -107,7 +107,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("CustomerDemographics");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Customers", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Customers", b =>
                 {
                     b.Property<string>("CustomerID")
                         .HasMaxLength(5)
@@ -168,7 +168,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("Customers");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Employees", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Employees", b =>
                 {
                     b.Property<int>("EmployeeID")
                         .ValueGeneratedOnAdd()
@@ -252,7 +252,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("Employees");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Order_Details", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Order_Details", b =>
                 {
                     b.Property<int>("OrderID")
                         .HasColumnType("int");
@@ -288,7 +288,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("Order Details", (string)null);
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Orders", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Orders", b =>
                 {
                     b.Property<int>("OrderID")
                         .ValueGeneratedOnAdd()
@@ -367,7 +367,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Persons", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Persons", b =>
                 {
                     b.Property<int>("PersonID")
                         .HasColumnType("int");
@@ -402,7 +402,7 @@ namespace WebApplication1.Migrations
                     b.HasAnnotation("SqlServer:UseSqlOutputClause", false);
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Products", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Products", b =>
                 {
                     b.Property<int>("ProductID")
                         .ValueGeneratedOnAdd()
@@ -468,7 +468,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Region", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Region", b =>
                 {
                     b.Property<int>("RegionID")
                         .HasColumnType("int");
@@ -486,7 +486,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("Region");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Shippers", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Shippers", b =>
                 {
                     b.Property<int>("ShipperID")
                         .ValueGeneratedOnAdd()
@@ -508,7 +508,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("Shippers");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Suppliers", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Suppliers", b =>
                 {
                     b.Property<int>("SupplierID")
                         .ValueGeneratedOnAdd()
@@ -569,7 +569,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("Suppliers");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Territories", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Territories", b =>
                 {
                     b.Property<string>("TerritoryID")
                         .HasMaxLength(20)
@@ -593,7 +593,7 @@ namespace WebApplication1.Migrations
                     b.ToTable("Territories");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.User", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -614,13 +614,13 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("CustomerCustomerDemo", b =>
                 {
-                    b.HasOne("WebApplication1.Models.Customers", null)
+                    b.HasOne("JwtTokenSample.Models.Customers", null)
                         .WithMany()
                         .HasForeignKey("CustomerID")
                         .IsRequired()
                         .HasConstraintName("FK_CustomerCustomerDemo_Customers");
 
-                    b.HasOne("WebApplication1.Models.CustomerDemographics", null)
+                    b.HasOne("JwtTokenSample.Models.CustomerDemographics", null)
                         .WithMany()
                         .HasForeignKey("CustomerTypeID")
                         .IsRequired()
@@ -629,22 +629,22 @@ namespace WebApplication1.Migrations
 
             modelBuilder.Entity("EmployeeTerritories", b =>
                 {
-                    b.HasOne("WebApplication1.Models.Employees", null)
+                    b.HasOne("JwtTokenSample.Models.Employees", null)
                         .WithMany()
                         .HasForeignKey("EmployeeID")
                         .IsRequired()
                         .HasConstraintName("FK_EmployeeTerritories_Employees");
 
-                    b.HasOne("WebApplication1.Models.Territories", null)
+                    b.HasOne("JwtTokenSample.Models.Territories", null)
                         .WithMany()
                         .HasForeignKey("TerritoryID")
                         .IsRequired()
                         .HasConstraintName("FK_EmployeeTerritories_Territories");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Employees", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Employees", b =>
                 {
-                    b.HasOne("WebApplication1.Models.Employees", "ReportsToNavigation")
+                    b.HasOne("JwtTokenSample.Models.Employees", "ReportsToNavigation")
                         .WithMany("InverseReportsToNavigation")
                         .HasForeignKey("ReportsTo")
                         .HasConstraintName("FK_Employees_Employees");
@@ -652,15 +652,15 @@ namespace WebApplication1.Migrations
                     b.Navigation("ReportsToNavigation");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Order_Details", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Order_Details", b =>
                 {
-                    b.HasOne("WebApplication1.Models.Orders", "Order")
+                    b.HasOne("JwtTokenSample.Models.Orders", "Order")
                         .WithMany("Order_Details")
                         .HasForeignKey("OrderID")
                         .IsRequired()
                         .HasConstraintName("FK_Order_Details_Orders");
 
-                    b.HasOne("WebApplication1.Models.Products", "Product")
+                    b.HasOne("JwtTokenSample.Models.Products", "Product")
                         .WithMany("Order_Details")
                         .HasForeignKey("ProductID")
                         .IsRequired()
@@ -671,19 +671,19 @@ namespace WebApplication1.Migrations
                     b.Navigation("Product");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Orders", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Orders", b =>
                 {
-                    b.HasOne("WebApplication1.Models.Customers", "Customer")
+                    b.HasOne("JwtTokenSample.Models.Customers", "Customer")
                         .WithMany("Orders")
                         .HasForeignKey("CustomerID")
                         .HasConstraintName("FK_Orders_Customers");
 
-                    b.HasOne("WebApplication1.Models.Employees", "Employee")
+                    b.HasOne("JwtTokenSample.Models.Employees", "Employee")
                         .WithMany("Orders")
                         .HasForeignKey("EmployeeID")
                         .HasConstraintName("FK_Orders_Employees");
 
-                    b.HasOne("WebApplication1.Models.Shippers", "ShipViaNavigation")
+                    b.HasOne("JwtTokenSample.Models.Shippers", "ShipViaNavigation")
                         .WithMany("Orders")
                         .HasForeignKey("ShipVia")
                         .HasConstraintName("FK_Orders_Shippers");
@@ -695,14 +695,14 @@ namespace WebApplication1.Migrations
                     b.Navigation("ShipViaNavigation");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Products", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Products", b =>
                 {
-                    b.HasOne("WebApplication1.Models.Categories", "Category")
+                    b.HasOne("JwtTokenSample.Models.Categories", "Category")
                         .WithMany("Products")
                         .HasForeignKey("CategoryID")
                         .HasConstraintName("FK_Products_Categories");
 
-                    b.HasOne("WebApplication1.Models.Suppliers", "Supplier")
+                    b.HasOne("JwtTokenSample.Models.Suppliers", "Supplier")
                         .WithMany("Products")
                         .HasForeignKey("SupplierID")
                         .HasConstraintName("FK_Products_Suppliers");
@@ -712,9 +712,9 @@ namespace WebApplication1.Migrations
                     b.Navigation("Supplier");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Territories", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Territories", b =>
                 {
-                    b.HasOne("WebApplication1.Models.Region", "Region")
+                    b.HasOne("JwtTokenSample.Models.Region", "Region")
                         .WithMany("Territories")
                         .HasForeignKey("RegionID")
                         .IsRequired()
@@ -723,44 +723,44 @@ namespace WebApplication1.Migrations
                     b.Navigation("Region");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Categories", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Categories", b =>
                 {
                     b.Navigation("Products");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Customers", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Customers", b =>
                 {
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Employees", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Employees", b =>
                 {
                     b.Navigation("InverseReportsToNavigation");
 
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Orders", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Orders", b =>
                 {
                     b.Navigation("Order_Details");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Products", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Products", b =>
                 {
                     b.Navigation("Order_Details");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Region", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Region", b =>
                 {
                     b.Navigation("Territories");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Shippers", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Shippers", b =>
                 {
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("WebApplication1.Models.Suppliers", b =>
+            modelBuilder.Entity("JwtTokenSample.Models.Suppliers", b =>
                 {
                     b.Navigation("Products");
                 });

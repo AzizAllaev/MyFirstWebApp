@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using System;
-using WebApplication1.Models;
+using JwtTokenSample.Models;
 
-namespace WebApplication1.Controllers
+namespace JwtTokenSample.Controllers
 {
 	[ApiController]
 	[Route("[controller]")]
@@ -27,6 +29,7 @@ namespace WebApplication1.Controllers
 		}
 
 		[HttpPost]
+		[Authorize]
 		public async Task<ActionResult<Products>> Post([FromBody] Products product)
 		{
 			await _context.Products.AddAsync(product);
@@ -35,6 +38,7 @@ namespace WebApplication1.Controllers
 		}
 
 		[HttpPut("{id}")]
+		[Authorize]
 		public async Task<ActionResult<Products>> Put([FromBody] Products product, int id)
 		{
 			if(product == null) 
@@ -47,6 +51,7 @@ namespace WebApplication1.Controllers
 		}
 
 		[HttpDelete("{id}")]
+		[Authorize]
 		public async Task<ActionResult> Delete(int id)
 		{
 			var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == id);

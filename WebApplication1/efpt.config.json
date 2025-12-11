@@ -9,7 +9,7 @@
    "OutputContextPath": null,
    "OutputPath": "Models",
    "PreserveCasingWithRegex": true,
-   "ProjectRootNamespace": "WebApplication1",
+   "ProjectRootNamespace": "JwtTokenSample",
    "Schemas": null,
    "SelectedHandlebarsLanguage": 2,
    "SelectedToBeGenerated": 0,
