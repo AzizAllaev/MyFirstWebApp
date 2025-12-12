@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authorization;
-using JwtTokenSample.Service;
+using JwtTokenSample.Services;
 
 namespace JwtTokenSample.Controllers
 {
@@ -16,10 +16,12 @@ namespace JwtTokenSample.Controllers
 	[Route("[controller]")]
 	public class JwtTokenController : ControllerBase
 	{
+		private readonly ITokenGenerator _tokenGenerator;
 		private readonly NorthwindContext _context;
 
-		public JwtTokenController(NorthwindContext context)
+		public JwtTokenController(ITokenGenerator tokenGenerator, NorthwindContext context)
 		{
+			_tokenGenerator = tokenGenerator;
 			_context = context;
 		}
 
@@ -28,7 +30,7 @@ namespace JwtTokenSample.Controllers
 		{
 			if (user.Username == "admin" && user.Password == "1234")
 			{
-				string token = AuthService.GenerateJwtToken(user.Username);
+				string token = _tokenGenerator.GenerateToken(user.Username);
 				return Ok(new { token });
 			}
 			

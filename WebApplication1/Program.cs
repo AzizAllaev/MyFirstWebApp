@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using JwtTokenSample.Models;
+using JwtTokenSample.Services;
 
 namespace JwtTokenSample
 {
@@ -30,7 +31,9 @@ namespace JwtTokenSample
 	            });
 
             builder.Services.AddAuthorization();
-			// Add services to the container.
+            builder.Services.AddScoped<ITokenGenerator, TokenGenerator>();
+            builder.Services.AddScoped<ITokenGenerator, ComplexTokenGenerator>();
+            // Add services to the container.
 			builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
