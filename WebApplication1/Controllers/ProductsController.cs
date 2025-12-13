@@ -29,7 +29,7 @@ namespace JwtTokenSample.Controllers
 		}
 
 		[HttpPost]
-		[Authorize]
+		[Authorize(Roles = "admin")]
 		public async Task<ActionResult<Products>> Post([FromBody] Products product)
 		{
 			await _context.Products.AddAsync(product);
@@ -38,7 +38,7 @@ namespace JwtTokenSample.Controllers
 		}
 
 		[HttpPut("{id}")]
-		[Authorize]
+		[Authorize(Roles = "admin")]
 		public async Task<ActionResult<Products>> Put([FromBody] Products product)
 		{
 			if(product == null)
@@ -51,7 +51,7 @@ namespace JwtTokenSample.Controllers
 		}
 
 		[HttpDelete("{id}")]
-		[Authorize]
+		[Authorize(Roles = "admin")]
 		public async Task<ActionResult> Delete(int id)
 		{
 			var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductID == id);
